@@ -15,4 +15,5 @@
     <string name="pseudo">Pseudo</string>
     <string name="commencer">Commencer</string>
     <string name="identifie_toi_avec_ton_pseudo">Identifie toi avec ton pseudo</string>
+    <string name="admin"><u>Administration</u></string>
 </resources>
