@@ -1,20 +1,13 @@
 package com.formation.sciencesufinalapp.ui.signup
 
-import GameViewModel
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import com.formation.sciencesufinalapp.R
 import com.formation.sciencesufinalapp.databinding.FragmentSignupBinding
-import com.formation.sciencesufinalapp.databinding.FragmentSplashBinding
-import com.formation.sciencesufinalapp.ui.splash.SplashFragmentDirections
-
-
 
 
 class SignupFragment : Fragment() {
