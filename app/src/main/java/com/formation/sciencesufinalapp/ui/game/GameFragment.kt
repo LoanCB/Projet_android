@@ -40,8 +40,8 @@ class GameFragment : Fragment() {
         binding.submit.setOnClickListener { onSubmitWord() }
         binding.skip.setOnClickListener { onSkipWord() }
         // Update the UI
-        binding.score.text = "score : 0"
-        binding.numberQuestions.text = "6"
+        binding.score.text = "0"
+        binding.numberQuestions.text = "1 sur ${viewModel.allWordsList.size}"
         // Observe the currentScrambledWord LiveData.
 // Observe the scrambledCharArray LiveData, passing in the LifecycleOwner and the observer.
 
@@ -73,8 +73,8 @@ class GameFragment : Fragment() {
         if (viewModel.isUserWordCorrect(playerWord)) {
             //setErrorTextField(false)
                 binding.score.text = viewModel.score.toString()
-            if (viewModel.nextWord()) {
-            } else {
+                binding.numberQuestions.text = "${(viewModel.currentWordCount + 1).toString()} sur ${viewModel.allWordsList.size}"
+            if (!viewModel.nextWord()) {
                 showFinalScoreDialog()
                 saveScore()
             }
