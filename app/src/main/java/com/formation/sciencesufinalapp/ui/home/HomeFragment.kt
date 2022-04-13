@@ -16,7 +16,6 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.formation.sciencesufinalapp.R
 import com.formation.sciencesufinalapp.databinding.FragmentHomeBinding
-import com.formation.sciencesufinalapp.databinding.FragmentSplashBinding
 import com.formation.sciencesufinalapp.ui.signup.SignUpViewModel
 import com.formation.sciencesufinalapp.ui.signup.SignupFragmentDirections
 
