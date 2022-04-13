@@ -17,6 +17,11 @@ class GameViewModel : ViewModel(){
     val currentWordCount: Int
         get() = _currentWordCount
 
+    private var _allWordsList = mutableListOf("Siamois","Persan",
+        "Angora","Main coon","sacré de Birmanie", "Sphinx", "Bleu")
+    val allWordsList: MutableList<String>
+        get() = _allWordsList
+
     private val _currentScrambledWord = MutableLiveData<String>()
     val currentScrambledWord: LiveData<String>
         get() = _currentScrambledWord
@@ -25,8 +30,8 @@ class GameViewModel : ViewModel(){
     val savedGames: LiveData<MutableList<Map<String,String>>>
         get() = _savedGames
 
-    private var allWordsList: MutableList<String> = mutableListOf("Siamois","Persan",
-        "Angora","Main coon","sacré de Birmanie", "Sphinx", "Bleu")
+//    private var allWordsList: MutableList<String> = mutableListOf("Siamois","Persan",
+//        "Angora","Main coon","sacré de Birmanie", "Sphinx", "Bleu")
 
     // List of words used in the game
     private var wordsList: MutableList<String> = mutableListOf()
