@@ -43,6 +43,7 @@ class HomeFragment : Fragment() {
     }
 
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -50,6 +51,12 @@ class HomeFragment : Fragment() {
             val action = HomeFragmentDirections.actionHomeFragmentToGameFragment()
             view.findNavController().navigate(action)
         }
+
+        binding.outlinedButton.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToAdminFragment()
+            view.findNavController().navigate(action)
+        }
+
 
         viewModel.currentPlayer.observe(viewLifecycleOwner,{
             playerName -> binding.helloText.text = playerName
@@ -88,6 +95,8 @@ class HomeFragment : Fragment() {
 
 
     }
+
+
 
 
 

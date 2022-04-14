@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
         android:fontFamily="casual"
-        android:text="no old"
+        android:text="MiaQuiz"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
         android:textStyle="bold"

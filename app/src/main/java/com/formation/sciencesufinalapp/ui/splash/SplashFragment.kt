@@ -1,6 +1,8 @@
 package com.formation.sciencesufinalapp.ui.splash
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,10 +35,10 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.progress.setOnClickListener {
+        Handler(Looper.getMainLooper()).postDelayed({
             val action = SplashFragmentDirections.actionSplashFragmentToSignupFragment()
             view.findNavController().navigate(action)
-        }
+        }, 3000)
     }
 
 
