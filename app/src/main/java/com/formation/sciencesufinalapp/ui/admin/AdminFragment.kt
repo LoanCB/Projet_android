@@ -27,7 +27,7 @@ class AdminFragment : Fragment() {
     private var param2: String? = null
 
     private var _binding: FragmentAdminBinding? = null
-    private val binding get() = _binding
+    private val binding get() = _binding!!
     private val viewModel: GameViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,13 +44,13 @@ class AdminFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentAdminBinding.inflate(inflater, container, false)
-        return binding!!.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding!!.sumOfCats.text = "${viewModel.allWordsList.size}"
+        binding.sumOfCats.text = "${viewModel.allWordsList.size}"
 
-        binding!!.backToHome.setOnClickListener {
+        binding.backToHome.setOnClickListener {
             val action = AdminFragmentDirections.actionAdminFragmentToHomeFragment()
             view.findNavController().navigate(action)
         }
