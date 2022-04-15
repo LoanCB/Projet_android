@@ -44,7 +44,11 @@
         android:id="@+id/adminFragment"
         android:name="com.formation.sciencesufinalapp.ui.admin.AdminFragment"
         android:label="fragment_admin"
-        tools:layout="@layout/fragment_admin" />
+        tools:layout="@layout/fragment_admin" >
+        <action
+            android:id="@+id/action_adminFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/rankFragment"
         android:name="com.formation.sciencesufinalapp.ui.rank.RankFragment"

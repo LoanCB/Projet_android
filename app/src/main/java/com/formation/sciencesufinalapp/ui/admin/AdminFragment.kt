@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import com.formation.sciencesufinalapp.databinding.FragmentAdminBinding
+import com.formation.sciencesufinalapp.ui.home.HomeFragmentDirections
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,6 +49,11 @@ class AdminFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding!!.sumOfCats.text = "${viewModel.allWordsList.size}"
+
+        binding!!.backToHome.setOnClickListener {
+            val action = AdminFragmentDirections.actionAdminFragmentToHomeFragment()
+            view.findNavController().navigate(action)
+        }
     }
 
     companion object {
