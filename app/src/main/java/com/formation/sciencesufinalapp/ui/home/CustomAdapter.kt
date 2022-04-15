@@ -22,13 +22,11 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : Adapter<CustomAda
 
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        val ItemsViewModel = mList[position]
-
-        holder.playername.text = ItemsViewModel.name
+        val itemsViewModel = mList[position]
+        holder.playername.text = itemsViewModel.name
 
         // sets the text to the textview from our itemHolder class
-        holder.scoreText.text = ItemsViewModel.score
+        holder.scoreText.text = itemsViewModel.score
 
     }
 
