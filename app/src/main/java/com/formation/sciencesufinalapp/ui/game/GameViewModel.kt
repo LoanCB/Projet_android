@@ -17,8 +17,10 @@ class GameViewModel : ViewModel(){
     val currentWordCount: Int
         get() = _currentWordCount
 
-    private var _allWordsList = mutableListOf("Siamois","Persan",
-        "Angora","Main coon","sacré de Birmanie", "Sphinx", "Bleu")
+    private var _allWordsList = mutableListOf(
+        "Siamois","Persan", "Angora","Main coon","sacré de Birmanie", "Sphinx", "Bleu", "Bengal",
+        "Abyssin", "Chartreux", "Manx", "Ocicat", "Somali", "Toyger", "Ragdoll", "Chausie"
+    )
     val allWordsList: MutableList<String>
         get() = _allWordsList
 
