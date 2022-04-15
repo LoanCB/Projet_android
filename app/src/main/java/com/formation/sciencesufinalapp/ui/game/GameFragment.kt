@@ -44,7 +44,7 @@ class GameFragment : Fragment() {
         resetUi()
 
         viewModel.currentScrambledWord.observe(viewLifecycleOwner) { newWord ->
-            binding.scrambledWord.text = newWord;
+            binding.scrambledWord.text = newWord
             binding.guessEdit.setText("")
         }
     }
@@ -79,6 +79,7 @@ class GameFragment : Fragment() {
             //setErrorTextField(false)
         } else {
             showFinalScoreDialog()
+            saveScore()
         }
     }
 
@@ -113,6 +114,7 @@ class GameFragment : Fragment() {
 
      // Exits the game
     private fun exitGame() {
+        viewModel.reinitializeData()
         val action = GameFragmentDirections.actionGameFragmentToHomeFragment()
         view?.findNavController()?.navigate(action)
     }
