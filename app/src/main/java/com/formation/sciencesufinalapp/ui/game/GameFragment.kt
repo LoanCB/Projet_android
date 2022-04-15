@@ -29,6 +29,7 @@ class GameFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     private fun resetUi() {
         binding.score.text = "0"
         binding.numberQuestions.text = "1 chat sur ${viewModel.allWordsList.size}"
