@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
@@ -43,6 +43,11 @@ class HomeFragment : Fragment() {
 
         binding.outlinedButton.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToAdminFragment()
+            view.findNavController().navigate(action)
+        }
+
+        binding.deconnectionButton.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToSignupFragment()
             view.findNavController().navigate(action)
         }
 
