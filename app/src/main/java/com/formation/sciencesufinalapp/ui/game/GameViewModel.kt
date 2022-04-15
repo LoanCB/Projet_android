@@ -30,9 +30,6 @@ class GameViewModel : ViewModel(){
     val savedGames: LiveData<MutableList<Map<String,String>>>
         get() = _savedGames
 
-//    private var allWordsList: MutableList<String> = mutableListOf("Siamois","Persan",
-//        "Angora","Main coon","sacré de Birmanie", "Sphinx", "Bleu")
-
     // List of words used in the game
     private var wordsList: MutableList<String> = mutableListOf()
     private lateinit var currentWord: String

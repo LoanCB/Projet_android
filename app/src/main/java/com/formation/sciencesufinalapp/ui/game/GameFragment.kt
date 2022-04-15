@@ -115,7 +115,6 @@ class GameFragment : Fragment() {
     private fun exitGame() {
         val action = GameFragmentDirections.actionGameFragmentToHomeFragment()
         view?.findNavController()?.navigate(action)
-//        activity?.finish()
     }
 
     override fun onDetach() {

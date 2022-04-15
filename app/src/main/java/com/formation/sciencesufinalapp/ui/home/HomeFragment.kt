@@ -46,6 +46,10 @@ class HomeFragment : Fragment() {
             view.findNavController().navigate(action)
         }
 
+        binding.exitButton.setOnClickListener {
+            activity?.finish()
+        }
+
         viewModel.currentPlayer.observe(viewLifecycleOwner) { playerName ->
             binding.helloText.text = playerName
         }
