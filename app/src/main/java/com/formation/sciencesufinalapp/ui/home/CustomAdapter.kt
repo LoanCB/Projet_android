@@ -1,5 +1,6 @@
 package com.formation.sciencesufinalapp.ui.home
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,12 +22,13 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : Adapter<CustomAda
     }
 
     // binds the list items to a view
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemsViewModel = mList[position]
-        holder.playername.text = itemsViewModel.name
+        holder.playername.text = "${itemsViewModel.name} :"
 
         // sets the text to the textview from our itemHolder class
-        holder.scoreText.text = itemsViewModel.score
+        holder.scoreText.text = "${itemsViewModel.score} ${if (itemsViewModel.score.toInt() < 2) "point" else "points"}"
 
     }
 

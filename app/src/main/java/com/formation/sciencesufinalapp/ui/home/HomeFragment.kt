@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.currentPlayer.observe(viewLifecycleOwner) { playerName ->
-            binding.helloText.text = playerName
+            binding.helloText.text = "Connecté en tant que ${playerName}"
         }
 
         val recyclerview = binding.recyclerview
@@ -67,7 +67,6 @@ class HomeFragment : Fragment() {
         gameViewModel.savedGames.observe(viewLifecycleOwner
         ) { newList ->
             if (newList.isNotEmpty()) {
-                binding.lastScore.text = "${newList[0]["player"]} : ${newList[0]["score"]}";
 
                 // ArrayList of class ItemsViewModel
                 val data = ArrayList<ItemsViewModel>()
