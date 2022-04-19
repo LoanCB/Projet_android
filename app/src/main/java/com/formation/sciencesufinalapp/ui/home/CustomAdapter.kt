@@ -1,14 +1,13 @@
 package com.formation.sciencesufinalapp.ui.home
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.*
 import com.formation.sciencesufinalapp.R
-import org.w3c.dom.Text
 
 class CustomAdapter(private val mList: List<ItemsViewModel>) : Adapter<CustomAdapter.ViewHolder>() {
 
@@ -23,14 +22,13 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : Adapter<CustomAda
     }
 
     // binds the list items to a view
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        val ItemsViewModel = mList[position]
-
-        holder.playername.text = ItemsViewModel.name
+        val itemsViewModel = mList[position]
+        holder.playername.text = "${itemsViewModel.name} :"
 
         // sets the text to the textview from our itemHolder class
-        holder.scoreText.text = ItemsViewModel.score
+        holder.scoreText.text = "${itemsViewModel.score} ${if (itemsViewModel.score.toInt() < 2) "point" else "points"}"
 
     }
 

@@ -58,16 +58,31 @@
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="270dp"
         android:layout_height="58dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#000000"
         android:text="@string/valider"
         android:textColor="@color/white"
         app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <Button
+        android:id="@+id/backToHome"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="270dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#000000"
+        android:text="Retour"
+        android:textColor="@color/white"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/underNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outlinedButton"
+        app:layout_constraintVertical_bias="0.089" />
 
     <TextView
         android:id="@+id/textView2"
@@ -85,15 +100,16 @@
         android:id="@+id/sumOfCats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="34"
+        android:text="X"
         android:textColor="#000000"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outlinedButton"
-        app:layout_constraintVertical_bias="0.233" />
+        app:layout_constraintVertical_bias="0.377" />
 
     <TextView
         android:id="@+id/underNumber"
@@ -104,7 +120,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sumOfCats"
         app:layout_constraintVertical_bias="0.0" />

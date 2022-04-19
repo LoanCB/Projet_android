@@ -17,8 +17,18 @@ class GameViewModel : ViewModel(){
     val currentWordCount: Int
         get() = _currentWordCount
 
-    private var _allWordsList = mutableListOf("Siamois","Persan",
-        "Angora","Main coon","sacré de Birmanie", "Sphinx", "Bleu")
+    private var _allWordsList = mutableListOf(
+        "Siamois","Persan", "Angora","Main coon","sacré de Birmanie", "Sphinx", "Bleu", "Bengal",
+        "Abyssin", "Chartreux", "Manx", "Ocicat", "Somali", "Toyger", "Ragdoll", "Chausie",
+        "Savannah", "American Curl", "American Shorthair", "American Wirehair", "Australian Mist",
+        "Balinais", "British Longhair", "British Shorthair", "Burmese", "Burmilla", "Ceylan",
+        "Chantilly-Tiffany", "Chat bombay", "Chat européen", "Cornish Rex", "Cymric", "Devon Rex",
+        "Exotic shorthair", "Himalayen", "Javanais", "Korat", "LaPerm", "Lykoi", "Mau égyptien",
+        "Mekong bobtail", "Munchkin", "Nebelung", "Neva Masquerade", "Norvégien", "Pixie-bob",
+        "Oriental shorthair", "Scottish fold", "Selkirk Rex", "Sibérien", "Singapura", "Snowshoe",
+        "Thaï", "Tonkinois", "Turc de Van", "Anatoli", "Asian", "Bobtail des kouriles", "Bombay",
+        "Bobtail Japonais", "Donskoy", "Mandarin", "Minskin", "Ojos Arules", "Peterald", "Safari"
+    )
     val allWordsList: MutableList<String>
         get() = _allWordsList
 
@@ -29,9 +39,6 @@ class GameViewModel : ViewModel(){
     private val _savedGames = MutableLiveData<MutableList<Map<String,String>>>(mutableListOf())
     val savedGames: LiveData<MutableList<Map<String,String>>>
         get() = _savedGames
-
-//    private var allWordsList: MutableList<String> = mutableListOf("Siamois","Persan",
-//        "Angora","Main coon","sacré de Birmanie", "Sphinx", "Bleu")
 
     // List of words used in the game
     private var wordsList: MutableList<String> = mutableListOf()

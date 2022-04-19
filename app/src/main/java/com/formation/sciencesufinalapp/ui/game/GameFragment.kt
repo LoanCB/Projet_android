@@ -29,6 +29,7 @@ class GameFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     private fun resetUi() {
         binding.score.text = "0"
         binding.numberQuestions.text = "1 chat sur ${viewModel.allWordsList.size}"
@@ -43,7 +44,7 @@ class GameFragment : Fragment() {
         resetUi()
 
         viewModel.currentScrambledWord.observe(viewLifecycleOwner) { newWord ->
-            binding.scrambledWord.text = newWord;
+            binding.scrambledWord.text = newWord
             binding.guessEdit.setText("")
         }
     }
@@ -78,6 +79,7 @@ class GameFragment : Fragment() {
             //setErrorTextField(false)
         } else {
             showFinalScoreDialog()
+            saveScore()
         }
     }
 
@@ -112,9 +114,9 @@ class GameFragment : Fragment() {
 
      // Exits the game
     private fun exitGame() {
+        viewModel.reinitializeData()
         val action = GameFragmentDirections.actionGameFragmentToHomeFragment()
         view?.findNavController()?.navigate(action)
-//        activity?.finish()
     }
 
     override fun onDetach() {

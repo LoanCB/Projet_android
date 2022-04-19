@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
@@ -45,9 +45,17 @@ class HomeFragment : Fragment() {
             val action = HomeFragmentDirections.actionHomeFragmentToAdminFragment()
             view.findNavController().navigate(action)
         }
+        binding.deconnectionButton.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToSignupFragment()
+            view.findNavController().navigate(action)
+        }
+
+        binding.exitButton.setOnClickListener {
+            activity?.finish()
+        }
 
         viewModel.currentPlayer.observe(viewLifecycleOwner) { playerName ->
-            binding.helloText.text = playerName
+            binding.helloText.text = "Connecté en tant que ${playerName}"
         }
 
         val recyclerview = binding.recyclerview
@@ -58,7 +66,6 @@ class HomeFragment : Fragment() {
         gameViewModel.savedGames.observe(viewLifecycleOwner
         ) { newList ->
             if (newList.isNotEmpty()) {
-                binding.lastScore.text = "${newList[0]["player"]} : ${newList[0]["score"]}";
 
                 // ArrayList of class ItemsViewModel
                 val data = ArrayList<ItemsViewModel>()
