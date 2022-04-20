@@ -11,8 +11,6 @@ class GameViewModel : ViewModel(){
     val score: Int
         get() = _score
 
-
-
     private var _currentWordCount = 0
     val currentWordCount: Int
         get() = _currentWordCount
@@ -58,9 +56,7 @@ class GameViewModel : ViewModel(){
         _savedGames.value!!.add(newscore)
     }
 
-    /*
-    * Updates currentWord and currentScrambledWord with the next word.
-    */
+    // Updates currentWord and currentScrambledWord with the next word.
     private fun getNextWord() {
         currentWord = allWordsList.random()
         val tempWord = currentWord.toCharArray()
@@ -78,9 +74,7 @@ class GameViewModel : ViewModel(){
         }
     }
 
-    /*
-    * Re-initializes the game data to restart the game.
-    */
+    // Re-initializes the game data to restart the game
     fun reinitializeData() {
         _score = 0
         _currentWordCount = 0
@@ -88,10 +82,7 @@ class GameViewModel : ViewModel(){
         getNextWord()
     }
 
-
-    /*
-    * Increases the game score if the player's word is correct.
-    */
+    // Increases the game score if the player's word is correct.
     private fun increaseScore() {
         _score += 1
     }
@@ -108,11 +99,9 @@ class GameViewModel : ViewModel(){
         return false
     }
 
-    /*
-    * Returns true if the current word count is less than MAX_NO_OF_WORDS
-    */
+    // Returns true if the current word count is less than MAX_NO_OF_WORDS
     fun nextWord(): Boolean {
-        return if (_currentWordCount < 6) {
+        return if (_currentWordCount < 15) {
             getNextWord()
             true
         } else false

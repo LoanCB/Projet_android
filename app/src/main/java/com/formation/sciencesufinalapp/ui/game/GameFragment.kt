@@ -23,8 +23,10 @@ class GameFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        // Inflate the layout XML file and return a binding object instance
+        /*
+        * Inflate the layout for this fragment
+        * Inflate the layout XML file and return a binding object instance
+        */
         binding = FragmentGameBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -32,7 +34,7 @@ class GameFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun resetUi() {
         binding.score.text = "0"
-        binding.numberQuestions.text = "1 chat sur ${viewModel.allWordsList.size}"
+        binding.numberQuestions.text = "1 chat sur 15"
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -64,7 +66,7 @@ class GameFragment : Fragment() {
         } else {
             //setErrorTextField(true)
         }
-        binding.numberQuestions.text = "${(viewModel.currentWordCount + 1).toString()} chats sur ${viewModel.allWordsList.size}"
+        binding.numberQuestions.text = "${viewModel.currentWordCount + 1} chats sur 15"
         if (!viewModel.nextWord()) {
             showFinalScoreDialog()
             saveScore()
@@ -74,7 +76,7 @@ class GameFragment : Fragment() {
     // Skips the current word without changing the score.
     @SuppressLint("SetTextI18n")
     private fun onSkipWord() {
-        binding.numberQuestions.text = "${(viewModel.currentWordCount + 1).toString()} chats sur ${viewModel.allWordsList.size}"
+        binding.numberQuestions.text = "${viewModel.currentWordCount + 1} chats sur 15"
         if (viewModel.nextWord()) {
             //setErrorTextField(false)
         } else {
