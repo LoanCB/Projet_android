@@ -100,9 +100,11 @@ class GameViewModel : ViewModel(){
     }
 
     // Returns true if the current word count is less than MAX_NO_OF_WORDS
-    fun nextWord(): Boolean {
+    fun nextWord(next: Boolean = true): Boolean {
         return if (_currentWordCount < 15) {
-            getNextWord()
+            if (next) {
+                getNextWord()
+            }
             true
         } else false
     }

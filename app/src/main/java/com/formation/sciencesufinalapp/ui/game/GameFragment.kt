@@ -18,6 +18,7 @@ class GameFragment : Fragment() {
     private val viewModel: GameViewModel by activityViewModels()
     private val authViewModel: SignUpViewModel by activityViewModels()
     private lateinit var binding: FragmentGameBinding
+    private var chances = 3
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,12 +30,6 @@ class GameFragment : Fragment() {
         */
         binding = FragmentGameBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    @SuppressLint("SetTextI18n")
-    private fun resetUi() {
-        binding.score.text = "0"
-        binding.numberQuestions.text = "1 chat sur 15"
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,38 +46,16 @@ class GameFragment : Fragment() {
         }
     }
 
-    /*
-   * Checks the user's word, and updates the score accordingly.
-   * Displays the next scrambled word.
-   * After the last word, the user is shown a Dialog with the final score.
-   */
     @SuppressLint("SetTextI18n")
-    private fun onSubmitWord() {
-        val playerWord = binding.guessEdit.text.toString()
-
-        if (viewModel.isUserWordCorrect(playerWord)) {
-            //setErrorTextField(false)
-            binding.score.text = viewModel.score.toString()
-        } else {
-            //setErrorTextField(true)
-        }
-        binding.numberQuestions.text = "${viewModel.currentWordCount + 1} chats sur 15"
-        if (!viewModel.nextWord()) {
-            showFinalScoreDialog()
-            saveScore()
-        }
+    private fun resetUi() {
+        binding.score.text = "0"
+        binding.numberQuestions.text = "1 chat sur 15"
     }
 
-    // Skips the current word without changing the score.
     @SuppressLint("SetTextI18n")
-    private fun onSkipWord() {
-        binding.numberQuestions.text = "${viewModel.currentWordCount + 1} chats sur 15"
-        if (viewModel.nextWord()) {
-            //setErrorTextField(false)
-        } else {
-            showFinalScoreDialog()
-            saveScore()
-        }
+    private fun nextWordUi() {
+        binding.wrongWord.text = ""
+        binding.numberQuestions.text = "${viewModel.currentWordCount} chats sur 15"
     }
 
     private fun saveScore(){
@@ -147,5 +120,44 @@ class GameFragment : Fragment() {
      * Displays the next scrambled word on screen.
      */
 
-}
+    /*
+    * Checks the user's word, and updates the score accordingly.
+    * Displays the next scrambled word.
+    * After the last word, the user is shown a Dialog with the final score.
+    */
+    @SuppressLint("SetTextI18n")
+    private fun onSubmitWord() {
+        val playerWord = binding.guessEdit.text.toString()
 
+        if (viewModel.isUserWordCorrect(playerWord)) {
+            //setErrorTextField(false)
+            binding.score.text = viewModel.score.toString()
+            onSkipWord()
+        } else {
+            chances -= 1
+            binding.wrongWord.text = "Mauvaise réponse, il vous reste ${chances} chances"
+            //setErrorTextField(true)
+        }
+        if (chances == 0) {
+            onSkipWord()
+        }
+        if (!viewModel.nextWord(next = false)) {
+            showFinalScoreDialog()
+            saveScore()
+        }
+    }
+
+    // Skips the current word without changing the score.
+    @SuppressLint("SetTextI18n")
+    private fun onSkipWord() {
+        chances = 3
+        if (viewModel.nextWord()) {
+            nextWordUi()
+            //setErrorTextField(false)
+        } else {
+            showFinalScoreDialog()
+            saveScore()
+        }
+    }
+
+}
