@@ -84,7 +84,6 @@ class GameFragment : Fragment() {
     private fun restartGame() {
         resetUi()
         viewModel.reinitializeData()
-       // setErrorTextField(false)
     }
 
      // Exits the game
@@ -100,27 +99,6 @@ class GameFragment : Fragment() {
     }
 
     /*
-    * Sets and resets the text field error status.
-    */
-
-    /*
-    private fun setErrorTextField(error: Boolean) {
-        if (error) {
-            binding.textField.isErrorEnabled = true
-            binding.textField.error = getString(R.string.try_again)
-        } else {
-            binding.textField.isErrorEnabled = false
-            binding.textInputEditText.text = null
-        }
-    }
-
-     */
-
-    /*
-     * Displays the next scrambled word on screen.
-     */
-
-    /*
     * Checks the user's word, and updates the score accordingly.
     * Displays the next scrambled word.
     * After the last word, the user is shown a Dialog with the final score.
@@ -130,13 +108,11 @@ class GameFragment : Fragment() {
         val playerWord = binding.guessEdit.text.toString()
 
         if (viewModel.isUserWordCorrect(playerWord)) {
-            //setErrorTextField(false)
             binding.score.text = viewModel.score.toString()
             onSkipWord()
         } else {
             chances -= 1
             binding.wrongWord.text = "Mauvaise réponse, il vous reste ${chances} chances"
-            //setErrorTextField(true)
         }
         if (chances == 0) {
             onSkipWord()
@@ -153,7 +129,6 @@ class GameFragment : Fragment() {
         chances = 3
         if (viewModel.nextWord()) {
             nextWordUi()
-            //setErrorTextField(false)
         } else {
             showFinalScoreDialog()
             saveScore()
