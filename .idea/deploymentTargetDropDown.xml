@@ -7,11 +7,11 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\noema\.android\avd\Pixel_4_API_32_1.avd" />
+            <value value="C:\Users\noema\.android\avd\Pixel_4_API_32_4.avd" />
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2022-04-13T10:11:56.710169300Z" />
+    <timeTargetWasSelectedWithDropDown value="2022-04-20T16:12:24.395874600Z" />
   </component>
 </project>
