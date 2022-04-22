@@ -33,6 +33,8 @@ class HomeFragment : Fragment() {
     }
 
     @SuppressLint("SetTextI18n")
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -57,6 +59,15 @@ class HomeFragment : Fragment() {
         viewModel.currentPlayer.observe(viewLifecycleOwner) { playerName ->
             binding.helloText.text = "Connecté en tant que ${playerName}"
         }
+        binding.outlinedButton.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToAdminFragment()
+            view.findNavController().navigate(action)
+        }
+
+
+        viewModel.currentPlayer.observe(viewLifecycleOwner,{
+            playerName -> binding.helloText.text = playerName
+        })
 
         val recyclerview = binding.recyclerview
 

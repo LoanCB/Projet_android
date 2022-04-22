@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e65a2e"
     tools:context=".ui.home.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -43,9 +44,9 @@
         android:layout_width="270dp"
         android:layout_height="58dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/white"
         android:text="Jouer"
-        android:textColor="@color/white"
+        android:textColor="#e65a2e"
         app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -58,7 +59,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/admin"
-        android:textColor="@color/black"
+        android:textColor="#e65a2e"
+        app:cornerRadius="15dp"
+        android:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -67,9 +70,9 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="74dp"
-        android:layout_height="53dp"
-        android:src="@drawable/ic__784571"
+        android:layout_width="67dp"
+        android:layout_height="98dp"
+        android:src="@drawable/catlogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -80,8 +83,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="54dp"
         android:text="Palmarès"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="40sp"
+        android:fontFamily="casual"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat"
         app:layout_constraintEnd_toEndOf="parent"
