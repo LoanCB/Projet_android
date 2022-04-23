@@ -53,18 +53,6 @@ class AdminFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.sumOfCats.text = "${viewModel.allWordsList.size}"
-
-        binding.backToHome.setOnClickListener {
-            val action = AdminFragmentDirections.actionAdminFragmentToHomeFragment()
-            view.findNavController().navigate(action)
-        }
-    }
-
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.outlinedButton.setOnClickListener{
             val catName = binding.nicknameInput.text.toString()
