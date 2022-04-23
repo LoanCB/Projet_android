@@ -35,7 +35,7 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Setup a click listener for the Submit and Skip buttons and update UI
+        // Setup a click listener for the Submit and Skip buttons and reset UI
         binding.submit.setOnClickListener { onSubmitWord() }
         binding.skip.setOnClickListener { onSkipWord() }
         resetUi()
@@ -58,16 +58,16 @@ class GameFragment : Fragment() {
         binding.numberQuestions.text = "${viewModel.currentWordCount} chats sur 15"
     }
 
-    private fun saveScore(){
+    private fun endGame() {
+        // save score
         val savedGame = mapOf<String,String>("player" to authViewModel.currentPlayer.value!!, "score" to viewModel.score.toString())
         viewModel.saveGame(savedGame)
-    }
 
-    private fun showFinalScoreDialog() {
+        // show final pop up
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Felicitation !")
-            .setMessage("votre score est ${viewModel.score.toString()}")
-            .setCancelable(true)
+            .setTitle(if (viewModel.score > 0) {"Bravo"} else {"Pas de chance !"})
+            .setMessage("Votre score est de ${viewModel.score} point${if (viewModel.score > 1) {"s"} else {""}}")
+            .setCancelable(false)
             .setNegativeButton("Quitter") { _, _ ->
                 exitGame()
             }
@@ -118,8 +118,7 @@ class GameFragment : Fragment() {
             onSkipWord()
         }
         if (!viewModel.nextWord(next = false)) {
-            showFinalScoreDialog()
-            saveScore()
+            endGame()
         }
     }
 
@@ -130,8 +129,7 @@ class GameFragment : Fragment() {
         if (viewModel.nextWord()) {
             nextWordUi()
         } else {
-            showFinalScoreDialog()
-            saveScore()
+            endGame()
         }
     }
 
