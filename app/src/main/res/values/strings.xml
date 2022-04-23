@@ -14,7 +14,7 @@
     <string name="animals">Animaux</string>
     <string name="pseudo">Pseudo</string>
     <string name="commencer">Commencer</string>
-    <string name="valider">Valider</string>
+    <string name="valider">Ajouter</string>
     <string name="identifie_toi_avec_ton_pseudo">Identifie toi avec ton pseudo</string>
     <string name="admin">Administration</string>
     <string name="upDateMessage">Met à jour la base de données des chats</string>

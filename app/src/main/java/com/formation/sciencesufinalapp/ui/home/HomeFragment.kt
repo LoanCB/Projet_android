@@ -57,17 +57,12 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.currentPlayer.observe(viewLifecycleOwner) { playerName ->
-            binding.helloText.text = "Connecté en tant que ${playerName}"
+            binding.helloText.text = "Bienvenue ${playerName} !"
         }
         binding.outlinedButton.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToAdminFragment()
             view.findNavController().navigate(action)
         }
-
-
-        viewModel.currentPlayer.observe(viewLifecycleOwner,{
-            playerName -> binding.helloText.text = playerName
-        })
 
         val recyclerview = binding.recyclerview
 
