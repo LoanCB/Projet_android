@@ -31,9 +31,6 @@
             android:id="@+id/action_homeFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_rankFragment"
-            app:destination="@id/rankFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
         <action
