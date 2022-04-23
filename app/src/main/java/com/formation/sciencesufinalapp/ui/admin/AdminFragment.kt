@@ -6,9 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import com.formation.sciencesufinalapp.R
+import com.formation.sciencesufinalapp.data.Cat
+import com.formation.sciencesufinalapp.data.CatViewModel
+import com.formation.sciencesufinalapp.databinding.FragmentAdminBinding
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import com.formation.sciencesufinalapp.databinding.FragmentAdminBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +31,7 @@ class AdminFragment : Fragment() {
 
     private var _binding: FragmentAdminBinding? = null
     private val binding get() = _binding!!
+    private lateinit var mCatViewModel: CatViewModel
     private val viewModel: GameViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +48,7 @@ class AdminFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentAdminBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -55,23 +61,17 @@ class AdminFragment : Fragment() {
         }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AdminFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AdminFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.outlinedButton.setOnClickListener{
+            val catName = binding.nicknameInput.text.toString()
+            mCatViewModel = ViewModelProvider(this).get(CatViewModel::class.java)
+            mCatViewModel.addCat(Cat(0,catName))
+
+        }
+    }
+
 }
