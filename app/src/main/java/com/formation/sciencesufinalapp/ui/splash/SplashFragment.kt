@@ -43,17 +43,3 @@ class SplashFragment : Fragment() {
 
 
 }
-/*class SplashFragment : AppCompatActivity() {
-    lateinit var handler: Handler
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_splash)
-
-        handler = Handler()
-        handler.postDelayed({
-            val intent = Intent(this, SignupFragment::class.java)
-            startActivity(intent)
-            finish()
-        },3000)
-    }
-}*/

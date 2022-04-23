@@ -50,11 +50,6 @@
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/rankFragment"
-        android:name="com.formation.sciencesufinalapp.ui.rank.RankFragment"
-        android:label="fragment_rank"
-        tools:layout="@layout/fragment_rank" />
-    <fragment
         android:id="@+id/gameFragment"
         android:name="com.formation.sciencesufinalapp.ui.game.GameFragment"
         android:label="fragment_game"
