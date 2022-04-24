@@ -57,13 +57,7 @@ class AdminFragment : Fragment() {
 
         _binding = FragmentAdminBinding.inflate(inflater, container, false)
 
-        var sum = gameViewModel.allWordsList.size
-
-        val newCats = mCatViewModel.readAllData
-
-        newCats.observe(viewLifecycleOwner) { cat ->
-            sum += 1
-        }
+        val sum = gameViewModel.allWordsList.size
 
         binding.sumOfCats.setText(sum.toString())
 
@@ -76,19 +70,32 @@ class AdminFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.outlinedButton.setOnClickListener{
             val catName = binding.nicknameInput.text.toString()
+
             val newCats = mCatViewModel.readAllData
-            val listNewCats : MutableList<String> = ArrayList()
-            newCats.observe(viewLifecycleOwner) {cat ->
-                listNewCats.add(cat.)
+
+            val catList: MutableList<String> = ArrayList()
+
+            newCats.observe(viewLifecycleOwner) { cats ->
+                cats.forEach { cat ->
+                    catList.add(cat.name)
+                }
             }
 
+            if (!catList.contains(catName) and !gameViewModel.allWordsList.contains(catName) and (catName.length > 2) and (catName != "Chat")){
 
             mCatViewModel = ViewModelProvider(this).get(CatViewModel::class.java)
             mCatViewModel.addCat(Cat(0,catName))
             binding.nicknameInput.setText("")
 
-            Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
+                val str = binding.sumOfCats.text.toString()
+                val num = str.toInt()
+                binding.sumOfCats.setText((num + 1).toString())
 
+            Toast.makeText(requireContext(), "Chat ajouté !", Toast.LENGTH_LONG).show()}
+
+            else {
+                Toast.makeText(requireContext(), "Nom invalide !", Toast.LENGTH_LONG).show()
+            }
         }
 
         binding.backToHome.setOnClickListener{
