@@ -3,13 +3,17 @@ package com.formation.sciencesufinalapp.ui.home
 import GameViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.formation.sciencesufinalapp.data.Cat
+import com.formation.sciencesufinalapp.data.CatViewModel
 import com.formation.sciencesufinalapp.databinding.FragmentHomeBinding
 import com.formation.sciencesufinalapp.ui.signup.SignUpViewModel
 
@@ -21,7 +25,9 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private val viewModel: SignUpViewModel by activityViewModels()
+
     private val gameViewModel: GameViewModel by activityViewModels()
+    private lateinit var mCatViewModel: CatViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,8 +35,27 @@ class HomeFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        mCatViewModel = ViewModelProvider(this).get(CatViewModel::class.java)
+
+        val newCats = mCatViewModel.readAllData
+
+        newCats.observe(viewLifecycleOwner) { cat ->
+            patchData(gameViewModel, cat)
+        }
+
         return binding.root
     }
+
+
+
+    private fun patchData(gameViewModel: GameViewModel, newCats: List<Cat> ) {
+        newCats.forEach { cat ->
+            if (!gameViewModel.allWordsList.contains(cat.name)) gameViewModel.allWordsList.add(cat.name)
+        }
+    }
+
+
+
 
     @SuppressLint("SetTextI18n")
 
