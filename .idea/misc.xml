@@ -9,9 +9,19 @@
         <entry key="..\:/Users/Loan/StudioProjects/Projet_android/app/src/main/res/layout/fragment_home.xml" value="0.29030797101449274" />
         <entry key="..\:/Users/Loan/StudioProjects/Projet_android/app/src/main/res/layout/fragment_signup.xml" value="0.29030797101449274" />
         <entry key="..\:/Users/noema/AndroidStudioProjects/Projet_android/app/src/main/res/layout/fragment_home.xml" value="0.17831813576494426" />
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.2595" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24230072463768115" />
+        <entry key="app/src/main/res/layout/card_view_design.xml" value="0.24230072463768115" />
+        <entry key="app/src/main/res/layout/custom_row.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/layout/fragment_admin.xml" value="0.24230072463768115" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.24230072463768115" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/layout/fragment_rank.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

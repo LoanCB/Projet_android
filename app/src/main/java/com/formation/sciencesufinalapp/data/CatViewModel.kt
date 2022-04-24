@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class CatViewModel(application: Application): AndroidViewModel(application){
 
-    private val readAllData: LiveData<List<Cat>>
+    val readAllData: LiveData<List<Cat>>
     private val repository: CatRepository
 
     init {
