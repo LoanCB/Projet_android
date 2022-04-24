@@ -55,8 +55,8 @@
         app:boxCornerRadiusBottomStart="15dp"
         app:boxCornerRadiusTopEnd="15dp"
         app:boxCornerRadiusTopStart="15dp"
-        app:boxStrokeColor="@color/white"
-        app:hintTextColor="@color/white"
+        app:boxStrokeColor="#e65a2e"
+        app:hintTextColor="@color/black"
         app:boxBackgroundColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,8 +69,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Réponse"
-            android:textColor="@color/white"
-            android:textCursorDrawable="@drawable/custom_edit_text_cursor" />
+            android:textColor="#e65a2e"
+            android:textCursorDrawable="@drawable/custom_edit_text_cursor_orange" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.LinearLayoutCompat
